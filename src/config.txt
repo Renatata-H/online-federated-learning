@@ -1,0 +1,8 @@
+# futuro arquivo de configução - ainda não é útil
+#bsize/qattacks 30 100
+#central user1@computer1 ID PORT
+#attacker user2@computer2 PORT1 PORT2 ...
+#wparent user3@computer3
+#w1 subuser1@submachine1 name1
+#w2 subuser2@submachine2 name2
+#w ...
