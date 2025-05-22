@@ -5,12 +5,17 @@ The code is not yet finished, and therefore still buggy. But you can run it in y
 
 Tutorial for the current version, which still is bugged and its interaction with user is still being worked on:
 
-1. Clone this repository into all the machines used for the simulation (central operator, attacker, and all the workers, which needs to there be at least 1);
-2. Since the config.txt file is not useful yet, manually edit the worker.py so the variable 'operator_id' has a string with the IP4 of the central operator machine;
-3. In the same idea, manually edit the variable 'names' of the start_attack() function in attacker.py so that it contains all the computer names of the workers;
-4. Now, run each of the following, in this order, in their respective machines: `python3 central.py`, `python3 worker.py` (for all workers) and `python3 attacker.py`.
-5. The attacker machine will be waiting for input, which is the port number that it will try to attack the workers. For convinience, use port 12346.
+1. Clone this repository into the server machine (central operator);
+
+2. Edit the `/src/config.py` file so that `server_ip` has the IPv4 address of this machine, and also list all of the workers' names in `workers_names`. Create the empty repository `/src/logs` as well;
+
+3. Copy this configured repository into all the other machines used for the simulation — the attacker and all the workers, of which it is necessary to have at least 1;
+
+4. Now run each of the folloing, in this other, in their respective machines:
+        `python3 /src/server.py`
+        `python3 /src/client.py` (for all workers)
+        `python3 /src/attacker.py`
 
 After that, the code should run. 
 
-Note that it is still buggy on the attacker side, so this perhaps will break. This is still a project on course.
+Note that it is still buggy on the attacker/client sidess, so this perhaps will break. This is still a project on course.
