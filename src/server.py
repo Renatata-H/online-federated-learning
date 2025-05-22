@@ -14,6 +14,8 @@ def process_worker_data(data: bytes) -> str:
     '''
     Handles incoming data from workers.
     Accumulates it, and once a round is over, sends results to everyone.
+
+
     '''
     try:
         decoded = data.decode().strip()
@@ -42,7 +44,7 @@ def round_manager():
                 result = sum(worker_data.values())
                 logging.info(f"Round result: {result} from {len(worker_data)} clients")
             else:
-                result = -1
+                result = 0
                 logging.info(f"Bad round result: no data received from {len(worker_data)} clients")
 
             for connection in connections.values():
@@ -54,4 +56,4 @@ def round_manager():
 
 if __name__ == '__main__':
     threading.Thread(target=round_manager, daemon=True).start()
-    start_server(server_ip, server_port, process_func=lambda x: "", timeout=5)
+    start_server(server_ip, server_port, process_func=process_worker_data, timeout=5)

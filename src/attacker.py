@@ -7,7 +7,7 @@ def send_random_numbers(ip: str):
         print(f"[Attacker] Connected to {ip}:{worker_port}")
 
         while True:
-            value = str(random.randint(1, 100))
+            value = str(random.randint(1, 100))     # problema da outra versão kkkkkkkkkkkk
             conn.sendall(value.encode())
             time.sleep(0.1)
 

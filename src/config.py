@@ -1,8 +1,8 @@
-server_ip = '0.0.0.0' #'192.168.1.1'
+server_ip = '0.0.0.0' #removido mas endereço da prestigio
 server_port = 50505
 
 num_workers = 1#3
-workers_names = '0.0.0.0'#['rasp1', 'rasp3', 'rasp5']
+workers_names = 'A' #'0.0.0.0'#['rasp1', 'rasp3', 'rasp5']
 worker_port = 60606
 
 contaminated_data = True

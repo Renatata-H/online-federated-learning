@@ -44,14 +44,14 @@ def send_to_server(message: str):
     '''
     global server_connection
     try:
-        server_connection.sendall(message.encode())
+        server_connection.sendall(str(message).encode())
         response = server_connection.recv(buffer_size)
         result = response.decode().strip()
         received_responses.append(result)
         print(f"[Worker] Received result from server: {result}")
 
     except Exception as e:
-        print(f"[Worker] Error communicating with server: {e}")
+        print(f"[Worker] Error communicating with server!!: {e}")
 
 def process_attack(data: bytes):
     '''
@@ -60,11 +60,12 @@ def process_attack(data: bytes):
     message = data.decode().strip()
 
     with lock:
-        message_buffer.append(message)
+        message_buffer.append(int(message))
         print(message_buffer)
 
         if len(message_buffer) >= MESSAGE_BUFFER_SIZE:
-            send_to_server("1")
+            #send_to_server("1")
+            send_to_server(sum(message_buffer))
             message_buffer.clear()
 
     return ""
